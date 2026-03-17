@@ -5,7 +5,7 @@
 
 Name: libtdb
 Version: 1.4.14
-Release: %{?xsrel}%{?dist}
+Release: %{?xsrel}.1%{?dist}
 Summary:         The tdb library
 License:         LGPL-3.0-or-later
 URL:             http://tdb.samba.org/
@@ -18,7 +18,13 @@ BuildRequires: gnupg2
 BuildRequires: python3-devel
 
 Provides: bundled(libreplace)
+
+# Python bindings no more used by system:
+# Samba does not build runtime python libraries anymore
+# XS removal of a version XCP-ng did not ship
 Obsoletes: python2-tdb < 1.4.2-1
+# XCP-ng: Removal of a previous samba requirement
+Obsoletes: python-tdb <= 1.3.18-1.el7
 
 %description
 A library that implements a trivial database.
@@ -89,6 +95,9 @@ export PYTHONARCHDIR=%{python3_sitearch}
 %ldconfig_scriptlets
 
 %changelog
+* Wed Jul 15 2026 Philippe Coval <philippe.coval@vates.tech> - 1.4.14-1.1
+- Obsolete python-tdb (no more needed by system, samba)
+
 * Mon Sep 22 2025 Lin Liu <Lin.Liu01@cloud.com> - 1.4.14-1
 - CP-310101: Update with samba
 
