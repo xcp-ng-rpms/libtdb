@@ -5,7 +5,7 @@
 
 Name: libtdb
 Version: 1.4.14
-Release: %{?xsrel}.1%{?dist}
+Release: %{?xsrel}.1~XCPNG2698.1%{?dist}
 Summary:         The tdb library
 License:         LGPL-3.0-or-later
 URL:             http://tdb.samba.org/
